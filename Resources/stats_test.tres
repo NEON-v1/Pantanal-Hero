@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="stats_test" load_steps=2 format=3 uid="uid://bjwko2jxhy55x"]
+
+[ext_resource type="Script" path="res://General/Scripts/stats_test.cs" id="1_xfoaj"]
+
+[resource]
+script = ExtResource("1_xfoaj")
+Health = 15
+Speed = 20
+MaxJumps = 2
+JumpVelocity = 600.0

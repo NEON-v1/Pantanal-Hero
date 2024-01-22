@@ -1,0 +1,158 @@
+[gd_scene load_steps=26 format=3 uid="uid://dh85qhltmsfi1"]
+
+[ext_resource type="Script" path="res://Player/Scripts/CharacterBody2D.cs" id="1_f6wkh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ti33i"]
+size = Vector2(66, 122)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vqkgo"]
+load_path = "res://.godot/imported/frame_00_delay-0.03s.png-e04ecba57ed54bd25175f9b8060ff103.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hx5kt"]
+load_path = "res://.godot/imported/frame_01_delay-0.03s.png-28a501c89fbbe5034361ddd889156922.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v4fit"]
+load_path = "res://.godot/imported/frame_02_delay-0.04s.png-c0c0294dcc2dad30a44bf2bc99f82643.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kr1qq"]
+load_path = "res://.godot/imported/frame_03_delay-0.03s.png-2f4e18b9882d71f35a7d4cbc50c8e42f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dmw1n"]
+load_path = "res://.godot/imported/frame_04_delay-0.03s.png-572292ec568d0d12f9990925349f9943.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6b0y"]
+load_path = "res://.godot/imported/frame_05_delay-0.04s.png-83e6f8cab1f1ae23e4d5e99a7f2169d7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ay2s4"]
+load_path = "res://.godot/imported/frame_06_delay-0.03s.png-b33a54b329918033cddb3359941e25ea.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kqb74"]
+load_path = "res://.godot/imported/frame_07_delay-0.03s.png-d06dc89af3606d769c4125cd307083c0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aojik"]
+load_path = "res://.godot/imported/frame_08_delay-0.04s.png-ec6c8ea389a9f089c7e47d204a860369.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m6txi"]
+load_path = "res://.godot/imported/frame_09_delay-0.03s.png-cf89e435eebab78c0f56629549290c8a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0u2sj"]
+load_path = "res://.godot/imported/frame_10_delay-0.03s.png-9213c96f5467f5da760ed051eb89afea.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g3tru"]
+load_path = "res://.godot/imported/frame_11_delay-0.04s.png-4f9b1acabfd50f824afbfbfc3009cc83.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uroyi"]
+load_path = "res://.godot/imported/frame_12_delay-0.03s.png-3714d3573c36ea2b40e237ef285758bd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ev8l"]
+load_path = "res://.godot/imported/frame_13_delay-0.03s.png-68d85438303a49346dfe338ec5ad967f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xf2og"]
+load_path = "res://.godot/imported/frame_14_delay-0.04s.png-72677a5c3fe285131c6e5cd10c2c97e4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_osiab"]
+load_path = "res://.godot/imported/frame_15_delay-0.03s.png-03feb649158fbb1a92b87d3fdfdbc28a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4o0vo"]
+load_path = "res://.godot/imported/frame_16_delay-0.03s.png-3829fa0077651b9d639de112ddb9eeea.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f7dnc"]
+load_path = "res://.godot/imported/frame_17_delay-0.04s.png-8453f9cfdf38df06ca4a7ee435032c81.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ra53u"]
+load_path = "res://.godot/imported/frame_18_delay-0.03s.png-de572fbac1033ff6f9c6be0cd4401b0a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l73me"]
+load_path = "res://.godot/imported/frame_19_delay-0.03s.png-78e2fd93b7e96e0bf793648a8881ed99.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n504e"]
+load_path = "res://.godot/imported/frame_20_delay-0.04s.png-ec67da77c143ba07c1e0b374c7577643.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f2wsh"]
+load_path = "res://.godot/imported/frame_21_delay-0.03s.png-e7fe223854c229a8960258c089d61a30.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bo546"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_vqkgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_hx5kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_v4fit")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_kr1qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_dmw1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_y6b0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_ay2s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_kqb74")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_aojik")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_m6txi")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_0u2sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_g3tru")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_uroyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_2ev8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_xf2og")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_osiab")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_4o0vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_f7dnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_ra53u")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_l73me")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_n504e")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_f2wsh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 27.0
+}]
+
+[node name="Capi" type="CharacterBody2D"]
+script = ExtResource("1_f6wkh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ti33i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.223214, 0.223214)
+sprite_frames = SubResource("SpriteFrames_bo546")
+animation = &"idle"
+frame_progress = 0.458007
