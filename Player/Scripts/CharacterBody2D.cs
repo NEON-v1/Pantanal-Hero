@@ -3,7 +3,7 @@ using System;
 
 public partial class CharacterBody2D : Godot.CharacterBody2D
 {
-	AnimationSystem animation_System;
+	[Export] public AnimationPlayer animPlayer;
 	
 	public float moveSpeed = 300.0f;
 	
@@ -22,7 +22,6 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 	
 	public override void _Ready()
 	{
-		animation_System = GetNode<AnimationSystem>("/root/AnimationSystem");
 		
 		if (Stats is stats_test botStats)
 		{
@@ -43,7 +42,7 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 		else if (dir == 0) {
 			velocity.X = 0;
 			
-			animation_System.Animate(0, GetPath());
+			animPlayer.Play("idle_test");
 		}
 		
 		if (IsOnFloor()) {

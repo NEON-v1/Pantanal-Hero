@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://barcb0k1yp1td"
-path="res://.godot/imported/frame_03_delay-0.03s.png-2f4e18b9882d71f35a7d4cbc50c8e42f.ctex"
+uid="uid://b1rf2uxdu6n3y"
+path="res://.godot/imported/spritesheet.png-d7e5cb3030c650cd0a888d8fa2ad14b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animations/Capi/Capi_idle/frame_03_delay-0.03s.png"
-dest_files=["res://.godot/imported/frame_03_delay-0.03s.png-2f4e18b9882d71f35a7d4cbc50c8e42f.ctex"]
+source_file="res://Animations/Capi/Capi_idle/spritesheet.png"
+dest_files=["res://.godot/imported/spritesheet.png-d7e5cb3030c650cd0a888d8fa2ad14b5.ctex"]
 
 [params]
 

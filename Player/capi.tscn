@@ -1,158 +1,67 @@
-[gd_scene load_steps=26 format=3 uid="uid://dh85qhltmsfi1"]
+[gd_scene load_steps=8 format=3 uid="uid://dh85qhltmsfi1"]
 
 [ext_resource type="Script" path="res://Player/Scripts/CharacterBody2D.cs" id="1_f6wkh"]
+[ext_resource type="Resource" uid="uid://bjwko2jxhy55x" path="res://Resources/stats_test.tres" id="2_pksba"]
+[ext_resource type="Texture2D" uid="uid://b1rf2uxdu6n3y" path="res://Animations/Capi/Capi_idle/spritesheet.png" id="2_xraps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ti33i"]
 size = Vector2(66, 122)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vqkgo"]
-load_path = "res://.godot/imported/frame_00_delay-0.03s.png-e04ecba57ed54bd25175f9b8060ff103.ctex"
+[sub_resource type="Animation" id="Animation_bw0uh"]
+resource_name = "idle_test"
+length = 0.73
+loop_mode = 1
+step = 0.0332
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0332, 0.0664, 0.0996, 0.1328, 0.166, 0.1992, 0.2324, 0.2656, 0.2988, 0.332, 0.3652, 0.3984, 0.4316, 0.4648, 0.498, 0.5312, 0.5644, 0.5976, 0.6308, 0.664, 0.6972),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(8, 0), Vector2i(9, 0), Vector2i(10, 0), Vector2i(11, 0), Vector2i(12, 0), Vector2i(13, 0), Vector2i(14, 0), Vector2i(15, 0), Vector2i(16, 0), Vector2i(17, 0), Vector2i(18, 0), Vector2i(19, 0), Vector2i(20, 0), Vector2i(21, 0)]
+}
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hx5kt"]
-load_path = "res://.godot/imported/frame_01_delay-0.03s.png-28a501c89fbbe5034361ddd889156922.ctex"
+[sub_resource type="Animation" id="Animation_nxp1m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v4fit"]
-load_path = "res://.godot/imported/frame_02_delay-0.04s.png-c0c0294dcc2dad30a44bf2bc99f82643.ctex"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0xguk"]
+_data = {
+"RESET": SubResource("Animation_nxp1m"),
+"idle_test": SubResource("Animation_bw0uh")
+}
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kr1qq"]
-load_path = "res://.godot/imported/frame_03_delay-0.03s.png-2f4e18b9882d71f35a7d4cbc50c8e42f.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dmw1n"]
-load_path = "res://.godot/imported/frame_04_delay-0.03s.png-572292ec568d0d12f9990925349f9943.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6b0y"]
-load_path = "res://.godot/imported/frame_05_delay-0.04s.png-83e6f8cab1f1ae23e4d5e99a7f2169d7.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ay2s4"]
-load_path = "res://.godot/imported/frame_06_delay-0.03s.png-b33a54b329918033cddb3359941e25ea.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kqb74"]
-load_path = "res://.godot/imported/frame_07_delay-0.03s.png-d06dc89af3606d769c4125cd307083c0.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aojik"]
-load_path = "res://.godot/imported/frame_08_delay-0.04s.png-ec6c8ea389a9f089c7e47d204a860369.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m6txi"]
-load_path = "res://.godot/imported/frame_09_delay-0.03s.png-cf89e435eebab78c0f56629549290c8a.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0u2sj"]
-load_path = "res://.godot/imported/frame_10_delay-0.03s.png-9213c96f5467f5da760ed051eb89afea.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g3tru"]
-load_path = "res://.godot/imported/frame_11_delay-0.04s.png-4f9b1acabfd50f824afbfbfc3009cc83.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uroyi"]
-load_path = "res://.godot/imported/frame_12_delay-0.03s.png-3714d3573c36ea2b40e237ef285758bd.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ev8l"]
-load_path = "res://.godot/imported/frame_13_delay-0.03s.png-68d85438303a49346dfe338ec5ad967f.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xf2og"]
-load_path = "res://.godot/imported/frame_14_delay-0.04s.png-72677a5c3fe285131c6e5cd10c2c97e4.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_osiab"]
-load_path = "res://.godot/imported/frame_15_delay-0.03s.png-03feb649158fbb1a92b87d3fdfdbc28a.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4o0vo"]
-load_path = "res://.godot/imported/frame_16_delay-0.03s.png-3829fa0077651b9d639de112ddb9eeea.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f7dnc"]
-load_path = "res://.godot/imported/frame_17_delay-0.04s.png-8453f9cfdf38df06ca4a7ee435032c81.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ra53u"]
-load_path = "res://.godot/imported/frame_18_delay-0.03s.png-de572fbac1033ff6f9c6be0cd4401b0a.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l73me"]
-load_path = "res://.godot/imported/frame_19_delay-0.03s.png-78e2fd93b7e96e0bf793648a8881ed99.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n504e"]
-load_path = "res://.godot/imported/frame_20_delay-0.04s.png-ec67da77c143ba07c1e0b374c7577643.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f2wsh"]
-load_path = "res://.godot/imported/frame_21_delay-0.03s.png-e7fe223854c229a8960258c089d61a30.ctex"
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bo546"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_vqkgo")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_hx5kt")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_v4fit")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_kr1qq")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_dmw1n")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_y6b0y")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ay2s4")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_kqb74")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_aojik")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_m6txi")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_0u2sj")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_g3tru")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_uroyi")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_2ev8l")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_xf2og")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_osiab")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_4o0vo")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_f7dnc")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ra53u")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_l73me")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_n504e")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_f2wsh")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 27.0
-}]
-
-[node name="Capi" type="CharacterBody2D"]
+[node name="Capi" type="CharacterBody2D" node_paths=PackedStringArray("animPlayer")]
 script = ExtResource("1_f6wkh")
+animPlayer = NodePath("AnimationPlayer")
+Stats = ExtResource("2_pksba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ti33i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.223214, 0.223214)
-sprite_frames = SubResource("SpriteFrames_bo546")
-animation = &"idle"
-frame_progress = 0.458007
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 60)
+scale = Vector2(0.215179, 0.215179)
+texture = ExtResource("2_xraps")
+offset = Vector2(0, -280)
+hframes = 22
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0xguk")
+}

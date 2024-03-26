@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk3i0vyqqi4dd"]
+[gd_scene load_steps=4 format=3 uid="uid://bk3i0vyqqi4dd"]
 
 [ext_resource type="PackedScene" uid="uid://dh85qhltmsfi1" path="res://Player/capi.tscn" id="1_rasa7"]
 [ext_resource type="Texture2D" uid="uid://dun5pl7lircak" path="res://icon.svg" id="2_t2rys"]
-[ext_resource type="Resource" uid="uid://bjwko2jxhy55x" path="res://Resources/stats_test.tres" id="4_f35qe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqral"]
 size = Vector2(1150, 116)
@@ -11,7 +10,6 @@ size = Vector2(1150, 116)
 
 [node name="Capi" parent="." instance=ExtResource("1_rasa7")]
 position = Vector2(58, 481)
-Stats = ExtResource("4_f35qe")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(580, 600)
