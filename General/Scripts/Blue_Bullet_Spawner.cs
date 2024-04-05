@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Blue_Bullet_Spawner : Sprite2D
+public partial class Blue_Bullet_Spawner : Node2D
 {
 	public PackedScene blueBullet = GD.Load<PackedScene>("res://Baddies/Bullets/blue_bullet.tscn");
 	public float time = 0.0f;

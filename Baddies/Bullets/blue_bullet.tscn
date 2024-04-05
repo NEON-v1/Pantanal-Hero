@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://isega6wnwgld"]
+[gd_scene load_steps=4 format=3 uid="uid://isega6wnwgld"]
+
+[ext_resource type="Script" path="res://Baddies/Bullets/blue_bullet.cs" id="1_nkf3a"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lay0p"]
 
@@ -8,6 +10,7 @@
 position = Vector2(-132.987, -1.66235)
 scale = Vector2(63.1688, 63.1688)
 texture = SubResource("PlaceholderTexture2D_lay0p")
+script = ExtResource("1_nkf3a")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.0316612, 0.0316612)
@@ -15,3 +18,5 @@ scale = Vector2(0.0316612, 0.0316612)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(1.6, 1.6)
 shape = SubResource("RectangleShape2D_yautd")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
