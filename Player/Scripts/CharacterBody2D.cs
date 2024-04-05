@@ -5,27 +5,27 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 {
 	[Export] public AnimationPlayer animPlayer;
 	
-	public float moveSpeed = 300.0f;
+	public float moveSpeed;
 	
 	//Max jump height (in pixels)
-	public float jumpVelocity = 600.0f;
+	public float jumpVelocity;
+	public float gravity;
 	public bool isFalling = false;
 	
 	public float dir;
 	public int jumpCount;
-	public int maxJumps = 2;
-	
-	//The time it take to reach max jump height
-	public float time;
+	public int maxJumps;
 	
 	[Export] public Resource Stats;
 	
 	public override void _Ready()
 	{
-		
 		if (Stats is stats_test botStats)
 		{
-			GD.Print(botStats.Health);
+			moveSpeed = botStats.Speed;
+			jumpVelocity = botStats.JumpVelocity;
+			gravity = botStats.Gravity;
+			maxJumps = botStats.MaxJumps;
 		}
 	}
 
@@ -48,27 +48,26 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 		if (IsOnFloor()) {
 			isFalling = false;
 			jumpCount = 0;
-			time = 1;
 		}
 		
 		if (Input.IsActionJustPressed("jump") && jumpCount < maxJumps) {
 			isFalling = false;
+			velocity.Y = -jumpVelocity;
 			jumpCount++;
-			time = 1;
 		}
 		
-		if (Input.IsActionPressed("jump") && !isFalling) {
-			velocity.Y = -jumpVelocity * time;
-			time -= (float)delta;
-			GD.Print(time);
+		if (!isFalling) {
+			velocity.Y += gravity;
 		}
 		
-		if (Input.IsActionJustReleased("jump") || isFalling || time < 0) {
+		if (Input.IsActionJustReleased("jump") && velocity.Y <= 0) {
 			isFalling = true;
-			velocity.Y = jumpVelocity * time;
-			time += (float)delta;
-			GD.Print(time);
 		}
+		
+		if (isFalling) {
+			velocity.Y += 3 * gravity;
+		}
+		GD.Print(velocity.Y);
 		
 		Velocity = velocity;
 		MoveAndSlide();

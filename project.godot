@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Pantanal Hero"
+config/name="Pantanal Hero - Anim-Test"
 run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
