@@ -1,19 +1,26 @@
 using Godot;
 using System;
 
-public partial class blue_bullet : Sprite2D
+public partial class blueBullet : Sprite2D
 {
-	public Node capi;
+	[Export] public Resource bBullet;
+	[Export] public Node capi;
 	
-	public float speed = 1.0f;
-	public float maxSpeed = 45.0f;
+	public float speed;
+	public int maxSpeed;
 	public Vector2 position;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		capi = GetNode("/root/Node2D/Capi");
 		position = Position;
-		capi = GetNode("Capi");
+		
+		if (bBullet is bullet_props BulletStats)
+		{
+			speed = BulletStats.InitialSpeed;
+			maxSpeed = BulletStats.MaxSpeed;
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,7 +37,7 @@ public partial class blue_bullet : Sprite2D
 		Position = position;
 	}
 	
-	private void _on_area_2d_body_entered(CharacterBody2D capi)
+	private void _on_area_2d_body_entered(Node capi)
 	{
 		// Replace with function body.
 		GD.Print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");

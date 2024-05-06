@@ -1,12 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk3i0vyqqi4dd"]
+[gd_scene load_steps=9 format=3 uid="uid://bk3i0vyqqi4dd"]
 
 [ext_resource type="PackedScene" uid="uid://dh85qhltmsfi1" path="res://Player/capi.tscn" id="1_rasa7"]
 [ext_resource type="Texture2D" uid="uid://dun5pl7lircak" path="res://icon.svg" id="2_t2rys"]
+[ext_resource type="Script" path="res://General/Scripts/stats_test.cs" id="2_tby7k"]
 [ext_resource type="Script" path="res://General/Scripts/Blue_Bullet_Spawner.cs" id="3_ciesb"]
 [ext_resource type="PackedScene" uid="uid://isega6wnwgld" path="res://Baddies/Bullets/blue_bullet.tscn" id="4_pgeog"]
 
+[sub_resource type="Resource" id="Resource_no5fx"]
+script = ExtResource("2_tby7k")
+Health = 25
+Speed = 250
+MaxJumps = 2
+JumpVelocity = 600.0
+Gravity = 25.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqral"]
 size = Vector2(1150, 116)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_65bj4"]
+resource_local_to_scene = true
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, -656)
@@ -15,7 +27,8 @@ position = Vector2(0, -656)
 anchor_mode = 0
 
 [node name="Capi" parent="." instance=ExtResource("1_rasa7")]
-position = Vector2(58, 481)
+position = Vector2(58.0001, 481)
+Stats = SubResource("Resource_no5fx")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(580, 600)
@@ -31,9 +44,11 @@ shape = SubResource("RectangleShape2D_qqral")
 [node name="Bullet Spawn Test" type="Node2D" parent="."]
 position = Vector2(750, 450)
 
-[node name="Blue Bullet Spawner" type="Sprite2D" parent="Bullet Spawn Test"]
-scale = Vector2(0.601563, 0.601563)
+[node name="Enemy (placeholder)" type="Sprite2D" parent="Bullet Spawn Test"]
+scale = Vector2(0.602, 0.602)
 texture = ExtResource("2_t2rys")
 script = ExtResource("3_ciesb")
 
-[node name="Blue Bullet" parent="Bullet Spawn Test/Blue Bullet Spawner" instance=ExtResource("4_pgeog")]
+[node name="Blue Bullet" parent="Bullet Spawn Test/Enemy (placeholder)" node_paths=PackedStringArray("capi") instance=ExtResource("4_pgeog")]
+texture = SubResource("PlaceholderTexture2D_65bj4")
+capi = NodePath("../../../Capi")

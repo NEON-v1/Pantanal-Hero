@@ -1,8 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh85qhltmsfi1"]
+[gd_scene load_steps=9 format=3 uid="uid://dh85qhltmsfi1"]
 
-[ext_resource type="Script" path="res://Player/Scripts/CharacterBody2D.cs" id="1_f6wkh"]
-[ext_resource type="Resource" uid="uid://bjwko2jxhy55x" path="res://Resources/stats_test.tres" id="2_pksba"]
+[ext_resource type="Script" path="res://Player/Scripts/CapiBasics.cs" id="1_bihio"]
+[ext_resource type="Script" path="res://General/Scripts/stats_test.cs" id="2_jvb4g"]
 [ext_resource type="Texture2D" uid="uid://b1rf2uxdu6n3y" path="res://Animations/Capi/Capi_idle/spritesheet.png" id="2_xraps"]
+
+[sub_resource type="Resource" id="Resource_5tt0m"]
+script = ExtResource("2_jvb4g")
+Health = 25
+Speed = 250
+MaxJumps = 2
+JumpVelocity = 600.0
+Gravity = 35.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ti33i"]
 size = Vector2(66, 121)
@@ -46,14 +54,21 @@ _data = {
 "idle_test": SubResource("Animation_bw0uh")
 }
 
-[node name="Capi" type="CharacterBody2D" node_paths=PackedStringArray("animPlayer")]
-script = ExtResource("1_f6wkh")
+[node name="Capi" type="CharacterBody2D" node_paths=PackedStringArray("animPlayer", "dashTimer")]
+script = ExtResource("1_bihio")
 animPlayer = NodePath("AnimationPlayer")
-Stats = ExtResource("2_pksba")
+Stats = SubResource("Resource_5tt0m")
+dashTimer = NodePath("HitBox/Timer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ti33i")
+debug_color = Color(0, 0.635294, 0.419608, 0.419608)
+
+[node name="Timer" type="Timer" parent="HitBox"]
+process_callback = 0
+wait_time = 0.5
+one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 60)

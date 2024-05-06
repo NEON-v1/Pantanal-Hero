@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CharacterBody2D : Godot.CharacterBody2D
+public partial class CapiBasics : CharacterBody2D
 {
 	[Export] public AnimationPlayer animPlayer;
 	
@@ -13,10 +13,19 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 	public bool isFalling = false;
 	
 	public float dir;
+	public float currDir;
+	
 	public int jumpCount;
 	public int maxJumps;
 	
+	public Vector2 velocity;
+	
 	[Export] public Resource Stats;
+	[Export] public Timer dashTimer;
+	
+	public CollisionShape2D hitbox;
+	
+	public bool isDashing;
 	
 	public override void _Ready()
 	{
@@ -27,12 +36,14 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 			gravity = botStats.Gravity;
 			maxJumps = botStats.MaxJumps;
 		}
+		
+		hitbox = GetNode<CollisionShape2D>("/root/Node2D/Capi/HitBox");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector2 velocity = Velocity;
+		velocity = Velocity;
 		
 		dir = Input.GetAxis("left", "right");
 		
@@ -45,6 +56,41 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 			animPlayer.Play("idle_test");
 		}
 		
+		jumpSystem();
+		
+		if (Input.IsActionJustPressed("dash")) {
+			dashTimer.Start(0.5f);
+			isDashing = true;
+		}
+		
+		if (isDashing) {
+			// EXTRA: become a little transparent ( play with shader )
+			
+			currDir = dir;
+			velocity.X = 3 * currDir * moveSpeed;
+			
+			hitbox.SetDeferred("Disabled", true);
+			
+			if (dashTimer.TimeLeft == 0) {
+				hitbox.SetDeferred("Disabled", false);
+				isDashing = false;
+			}
+		}
+		
+		Velocity = velocity;
+		MoveAndSlide();
+	}
+	
+	
+	/*
+		Functions ahead:
+		
+		 - jump System  ( Self explanatory )
+	*/
+	
+	
+	public void jumpSystem () {
+		
 		if (IsOnFloor()) {
 			isFalling = false;
 			jumpCount = 0;
@@ -56,20 +102,17 @@ public partial class CharacterBody2D : Godot.CharacterBody2D
 			jumpCount++;
 		}
 		
-		if (!isFalling) {
-			velocity.Y += gravity;
-		}
-		
 		if (Input.IsActionJustReleased("jump") && velocity.Y <= 0) {
 			isFalling = true;
 		}
 		
-		if (isFalling) {
+		if (!isFalling) {
+			velocity.Y += gravity;
+		}
+		else {
 			velocity.Y += 3 * gravity;
 		}
-		GD.Print(velocity.Y);
 		
-		Velocity = velocity;
-		MoveAndSlide();
+		GD.Print(velocity.Y);
 	}
 }

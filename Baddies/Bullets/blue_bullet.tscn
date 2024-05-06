@@ -1,16 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://isega6wnwgld"]
+[gd_scene load_steps=6 format=3 uid="uid://isega6wnwgld"]
 
-[ext_resource type="Script" path="res://Baddies/Bullets/blue_bullet.cs" id="1_nkf3a"]
+[ext_resource type="Script" path="res://Baddies/Bullets/blueBullet.cs" id="1_nkf3a"]
+[ext_resource type="Script" path="res://General/Scripts/bullet_props.cs" id="2_md3vi"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lay0p"]
+resource_local_to_scene = true
+
+[sub_resource type="Resource" id="Resource_dctp5"]
+script = ExtResource("2_md3vi")
+Damage = 0
+InitialSpeed = 1.0
+SpeedMultiplier = 0.0
+MaxSpeed = 45
+TimeUntilMaxSpeed = 0.0
+AmountPerCycle = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yautd"]
 
 [node name="Blue Bullet" type="Sprite2D"]
-position = Vector2(-132.987, -1.66235)
-scale = Vector2(63.1688, 63.1688)
+position = Vector2(-120, 0)
+scale = Vector2(60, 60)
 texture = SubResource("PlaceholderTexture2D_lay0p")
 script = ExtResource("1_nkf3a")
+bBullet = SubResource("Resource_dctp5")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.0316612, 0.0316612)
