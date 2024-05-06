@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_xfoaj")
-Health = 15
-Speed = 20
+Health = 25
+Speed = 300
 MaxJumps = 2
 JumpVelocity = 600.0
+Gravity = 30.0
